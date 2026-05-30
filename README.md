@@ -44,3 +44,6 @@ Podes tocar no simulador utilizando as seguintes teclas do teu computador:
 ---
 
 
+
+---
+Desenvolvido com 💜 por Juciana Soares durante a Trilha de Front-End.
