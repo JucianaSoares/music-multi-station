@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Multi-Station</title>
+  <link rel="stylesheet" href="src/styles/reset.css">
+  <link rel="stylesheet" href="src/styles/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="mode-piano">
+  <div class="theme-selector-wrapper">
+    <span>Tema:</span>
+    <select id="theme-style">
+      <option value="theme-neon">⚡ Cyberpunk Neon</option>
+      <option value="theme-vintage">🪵 Clássico Vintage</option>
+      <option value="theme-pastel">🦄 Pop Pastel</option>
+      <option value="theme-gold">👑 Gold Studio</option>
+      <option value="theme-arcade">🕹️ Retro Arcade</option>
+      <option value="theme-light">☀️ Clean Light</option>
+    </select>
+  </div>
+  <div class="super-station-container">
+    <div class="top-panel">
+      <div class="control-group left-controls">
+        <div class="btn-row">
+          <button id="btn-record" class="panel-btn rec-btn">● REC</button>
+          <button id="btn-stop-rec" class="panel-btn" disabled>⏹️ PARAR</button>
+          <button id="btn-play-rec" class="panel-btn" disabled>▶️ PLAY</button>
+        </div>
+        <div class="select-row">
+          <label for="station-mode">SOUNDS</label>
+          <select id="station-mode">
+            <option value="piano">🎹 PIANO</option>
+            <option value="synth">🚀 SYNTH</option>
+          </select>
+        </div>
+        <div class="toggle-row">
+          <label class="effect-switch">
+            <input type="checkbox" id="check-sustain">
+            <span class="custom-switch"></span>
+            SUSTAIN (ECO)
+          </label>
+        </div>
+      </div>
+      <div class="digital-display">
+        <div class="display-content">
+          <div class="display-mode">MODE: <span id="current-mode-text">PIANO</span></div>
+          <div class="display-status" id="display-status-text">[STATUS: STANDBY]</div>
+          <div class="display-bpm">BPM: <span id="bpm-value">120 BPM</span></div>
+        </div>
+      </div>
+      <div class="control-group right-controls">
+        <div class="metronome-box">
+          <button id="btn-metronome" class="panel-btn">⏱️ METRÔNOMO</button>
+          <div class="bpm-slider">
+            <input type="range" id="input-bpm" min="60" max="240" value="120">
+          </div>
+          <div id="metronome-light" class="indicator-light"></div>
+        </div>
+        <div class="column volume-slider">
+          <span>VOLUME</span> 
+          <input type="range" min="0" max="1" value="0.5" step="any">
+        </div>
+        <div class="column keys-check">
+          <span>TECLAS</span> <input type="checkbox" checked>
+        </div>
+      </div>
+    </div> 
+    <div class="led-strip"></div>
+    <div class="instrument-row">
+      <div class="mpc-grid-wrapper">
+        <span class="panel-tag">MPC PADS</span>
+        <div class="drum-pads">
+          <div class="pad" data-key="a">A</div>
+          <div class="pad" data-key="w">W</div>
+          <div class="pad" data-key="s">S</div>
+          <div class="pad" data-key="e">E</div>
+          <div class="pad" data-key="d">D</div>
+          <div class="pad" data-key="f">F</div>
+          <div class="pad" data-key="g">G</div>
+          <div class="pad" data-key="h">H</div>
+        </div>
+      </div>
+      <div class="keyboard-base">
+        <ul class="piano-keys">
+          <li class="key white" data-key="a"><span>a</span></li>
+          <li class="key black" data-key="w"><span>w</span></li>
+          <li class="key white" data-key="s"><span>s</span></li>
+          <li class="key black" data-key="e"><span>e</span></li>
+          <li class="key white" data-key="d"><span>d</span></li>
+          <li class="key black" data-key="f"><span>f</span></li>
+          <li class="key white" data-key="t"><span>t</span></li>
+          <li class="key black" data-key="g"><span>g</span></li>
+          <li class="key white" data-key="y"><span>y</span></li>
+          <li class="key black" data-key="h"><span>h</span></li>
+          <li class="key white" data-key="u"><span>u</span></li>
+          <li class="key black" data-key="j"><span>j</span></li>
+          <li class="key white" data-key="k"><span>k</span></li>
+          <li class="key black" data-key="o"><span>o</span></li>
+          <li class="key white" data-key="l"><span>l</span></li>
+          <li class="key black" data-key="p"><span>p</span></li>
+          <li class="key white" data-key=";"><span>;</span></li>
+        </ul>
+      </div>
+    </div> 
+  </div> 
+  <script src="src/script/engine.js" defer></script>
+</body>
+</html>

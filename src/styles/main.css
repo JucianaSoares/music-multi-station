@@ -1,0 +1,444 @@
+/* --- 1. CONFIGURAÇÃO DE TEMAS E CORES VARIÁVEIS --- */
+
+/* Tema 1: Cyberpunk Neon */
+body.theme-neon {
+  --bg-site: #0d0e15;               /* Fundo original super escuro */
+  --bg-chassis: #2d1b4e;            /* Tom Roxo Neon marcante de antes! */
+  --bg-display: #1a0f30;            /* Visor combinando com o roxo */
+  --bg-teclado: #111111; 
+  --cor-led-display: #00ffcc;       /* Letras em verde neon */
+  --cor-led-decorativo: #ff007f;    /* Linha de LED rosa neon */
+  --cor-pad: #25293a;               /* Botões da bateria escuros originais */
+  --cor-pad-ativa: #ff007f;         /* Ao clicar, brilha rosa neon */
+  --shadow-neon: 0 0 20px #ff007f, 0 0 40px #ff007f; /* Brilho original */
+  --cor-texto: #00ffcc;             /* Texto original em verde neon */
+}
+
+/* Tema 2: Clássico Vintage */
+body.theme-vintage {
+  --bg-site: #2b1810; 
+  --bg-chassis: #4a2c1b; 
+  --bg-display: #1f1107; 
+  --bg-teclado: #1a0f0a;
+  --cor-led-display: #d4af37; 
+  --cor-led-decorativo: #d4af37;
+  --cor-pad: #5c3a26;
+  --cor-pad-ativa: #d4af37;
+  --shadow-neon: 0 0 15px #d4af37;
+  --cor-texto: #f5f2eb;
+}
+
+/* Tema 3: Pop Pastel (Rosa algodão-doce) */
+body.theme-pastel {
+  --bg-site: #f0ebf7;               /* Fundo lilás bem clarinho original */
+  --bg-chassis: #ffbcda;            /* Tom Rosa Pastel (algodão-doce) original! */
+  --bg-display: #fbcce3;            /* Visor combinando com o rosa suave */
+  --bg-teclado: #2c2536;
+  --cor-led-display: #6c5ce7;       /* Textos em roxo pastel */
+  --cor-led-decorativo: #74b9ff;    /* Linha de LED azul bebê */
+  --cor-pad: #74b9ff;               /* Botões da bateria azul bebê */
+  --cor-pad-ativa: #ff7675;         /* Ao clicar, brilha rosa pastel */
+  --shadow-neon: 0 0 15px #ff7675;
+  --cor-texto: #6c5ce7;             /* Textos em roxo pastel */
+}
+
+/* TEMA 4: GOLD STUDIO (Estúdio de Luxo - Preto e Dourado) */
+body.theme-gold {
+  --bg-site: #0b0b0b;               /* Fundo externo preto luxo */
+  --bg-chassis: #1a1a1a;            /* Chassi em cinza grafite escuro */
+  --bg-display: #111111;            /* Visor preto absoluto */
+  --bg-teclado: #050505;
+  --cor-led-display: #e6c66d;       /* Letras em dourado suave */
+  --cor-led-decorativo: #d4af37;    /* Detalhes e frisos em ouro */
+  --cor-pad: #2b2b2b;               /* MPC Pads em cinza escuro */
+  --cor-pad-ativa: #d4af37;         /* Ao clicar, brilha em dourado */
+  --shadow-neon: 0 0 15px #d4af37;
+  --cor-texto: #e6c66d;             /* Textos gerais em dourado */
+}
+
+/* TEMA 5: RETRO ARCADE (Synthwave Anos 80) */
+body.theme-arcade {
+  --bg-site: #020010;               /* Fundo azul-escuro espacial */
+  --bg-chassis: #0d001a;            /* Chassi roxo profundo de fliperama */
+  --bg-display: #05000a;            /* Visor escuro */
+  --bg-teclado: #05000a;  
+  --cor-led-display: #00ff66;       /* Letras verde limão neon */
+  --cor-led-decorativo: #ff00ff;    /* Linha de LED magenta vibrante */
+  --cor-pad: #1a0033;               /* MPC Pads roxos */
+  --cor-pad-ativa: #00ff66;         /* Ao clicar, brilha verde */
+  --shadow-neon: 0 0 15px #ff00ff;
+  --cor-texto: #ff00ff;             /* Textos em magenta */
+}
+
+/* TEMA 6: CLEAN LIGHT (Estúdio de Alumínio Escuro / Titânio) */
+body.theme-light {
+  --bg-site: #c8cbd3;               /* Fundo de fora em cinza fosco ligeiramente mais escuro */
+  --bg-chassis: #a0a5b0;            /* MÁGICA: Cinza Titânio/Alumínio Escuro para NUNCA parecer branco! */
+  --bg-display: #12131a;            /* Visor Preto absoluto de alto contraste */
+  --bg-teclado: #16171f;            /* Base do piano preta fosca */
+  --cor-led-display: #00e676;       /* Letras do visor em Verde Elétrico */
+  --cor-led-decorativo: #1a73e8;    /* Linha de LED em Azul Royal bem nítido */
+  --cor-pad: #cbd1db;               /* MPC Pads em cinza prata fosco */
+  --cor-pad-ativa: #1a73e8;         /* Ao clicar nos Pads, eles acendem em Azul */
+  --shadow-neon: 0 2px 8px rgba(26, 115, 232, 0.4); 
+  --cor-texto: #1a202c;             /* Textos e labels em grafite bem escuro para leitura perfeita */
+}
+
+/* --- 2. CONFIGURAÇÕES BASE --- */
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--bg-site);
+  color: var(--cor-texto);
+  font-family: 'Poppins', sans-serif;
+  padding: 10px;
+  margin: 0;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.theme-selector-wrapper {
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* --- 3. O CHASSI DA SUPER ESTAÇÃO MUSICAL --- */
+
+.super-station-container {
+  width: 100%;
+  max-width: 950px;
+  background-color: var(--bg-chassis);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 
+              inset 0 2px 3px rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-sizing: border-box;
+}
+
+/* --- 4. PAINEL SUPERIOR (CONTROLES) --- */
+
+.top-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  min-width: 160px;
+  flex: 1 1 180px; /* Permite que os blocos de controle se ajustem melhor em telas médias */
+}
+
+.btn-row, .select-row, .toggle-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.panel-btn, .tempo-btn {
+  background: linear-gradient(180deg, #323846 0%, #1e222b 100%);
+  color: #a6b0c3;
+  border: 1px solid #111;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: bold;
+  box-shadow: 0 3px 0 #0f1115, inset 0 1px 0 rgba(255,255,255,0.1);
+  transition: all 0.1s;
+}
+
+.panel-btn:active, .tempo-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #0f1115;
+}
+
+.panel-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+#btn-record.recording {
+  background: #ff1744 !important;
+  color: #fff;
+  box-shadow: 0 0 12px #ff1744;
+  animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+  from { opacity: 1; } to { opacity: 0.6; }
+}
+
+/* --- 5. VISOR DIGITAL CENTRAL --- */
+
+.digital-display {
+  background-color: var(--bg-display);
+  border: 4px solid #111;
+  border-radius: 6px;
+  padding: 12px 20px;
+  min-width: 180px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 3px 10px rgba(0,0,0,0.8);
+  font-family: monospace;
+  flex: 1 1 200px;
+}
+
+.display-content {
+  color: var(--cor-led-display);
+  text-shadow: 0 0 5px var(--cor-led-display);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  width: 100%;
+}
+
+/* --- 6. FILEIRA DOS INSTRUMENTOS (LADO A LADO) --- */
+
+.instrument-row {
+  display: flex;
+  align-items: stretch; /* Garante alinhamento de altura perfeito */
+  gap: 15px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* TORRE DE PADS DA BATERIA */
+.mpc-grid-wrapper {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0; /* Impede o piano de esmagar a bateria */
+}
+
+.panel-tag {
+  font-size: 0.65rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  opacity: 0.5;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.drum-pads {
+  display: grid;
+  grid-template-columns: repeat(2, 45px); 
+  gap: 5px; /* Reduzido de 6px para 5px para economizar espaço vertical */
+}
+
+.pad {
+  width: 45px;
+  height: 40px; /* Reduzido de 45px para 40px para eliminar o corte inferior no celular */
+  background: var(--cor-pad);
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  border-bottom: 4px solid rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+  transition: all 0.05s ease;
+  box-sizing: border-box;
+}
+
+.pad.active {
+  background: var(--cor-pad-ativa) !important;
+  box-shadow: var(--shadow-neon);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+  transform: translateY(3px);
+  color: #fff;
+}
+
+/* --- 7. BARRA DE LED INTERMEDIÁRIA --- */
+
+.led-strip {
+  height: 5px;
+  background-color: var(--cor-led-decorativo);
+  box-shadow: 0 0 12px var(--cor-led-decorativo), 0 0 25px var(--cor-led-decorativo);
+  border-radius: 2px;
+  margin: 5px 0;
+}
+
+/* --- 8. TECLADO MUSICAL (PIANO) INFERIOR RESTAURADO --- */
+
+.keyboard-base {
+  background: var(--bg-teclado);
+  padding: 10px 8px 6px 8px;
+  border-radius: 6px;
+  box-shadow: inset 0 5px 10px rgba(0,0,0,0.5);
+  flex-grow: 1;
+  display: block;
+  position: relative;
+  overflow-x: auto;           /* Reativa a rolagem lateral que funcionava */
+  -webkit-overflow-scrolling: touch; /* Deixa a rolagem lisinha no iPhone */
+}
+
+.piano-keys {
+  display: flex;
+  width: max-content;         /* Garante que o piano mantenha seu tamanho real sem esmagar */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+.piano-keys .key {
+  cursor: pointer;
+  user-select: none;
+  text-transform: uppercase;
+  position: relative;         /* Mantém a letra presa dentro da tecla */
+}
+
+/* Tamanho fixo perfeito para celulares (Modo Rolagem) */
+.piano-keys .white {
+  width: 50px;                /* Largura confortável para tocar com o dedo */
+  height: 180px;
+  border: 1px solid #111;
+  border-radius: 0 0 5px 5px;
+  background: linear-gradient(to bottom, #fff 0%, #f4f4f4 95%, #ddd 100%);
+  color: #888;
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+/* Encaixe matemático clássico das pretas */
+.piano-keys .black {
+  width: 30px;
+  height: 110px;
+  z-index: 2;
+  margin: 0 -15px 0 -15px;    /* Metade da largura para centralizar no vão */
+  border: 1px solid #000;
+  border-radius: 0 0 4px 4px;
+  background: linear-gradient(to bottom, #444 0%, #111 100%);
+  color: #aaa;
+  box-sizing: border-box;
+}
+
+/* Letras centralizadas no fundo das teclas */
+.piano-keys span {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+.piano-keys .black span {
+  color: #fff;
+  bottom: 8px;
+}
+
+.piano-keys .white.active {
+  background: linear-gradient(to bottom, #eee 0%, #ccc 100%);
+  box-shadow: inset 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.piano-keys .black.active {
+  background: linear-gradient(to bottom, #222 0%, #000 100%);
+  box-shadow: inset 0 2px 5px rgba(255,255,255,0.1);
+}
+
+.piano-keys .key.hide span {
+  display: none;
+}
+
+
+/* --- 10. RESPONSIVIDADE PARA TELAS GRANDES (LAPTOPS/TABLETS) --- */
+
+@media (min-width: 768px) {
+  /* Em iPads, Tablets (como o Nexus) e Laptops, tiramos a rolagem e expandimos o piano */
+  .keyboard-base {
+    overflow-x: hidden;       /* Remove a barra de rolagem em telas grandes */
+  }
+
+  .piano-keys {
+    width: 100%;              /* Estica o container para ocupar toda a largura da direita */
+  }
+  
+  .piano-keys .white {
+    width: auto;              /* Cancela os 50px fixos */
+    flex-grow: 1;             /* Distribui as teclas brancas preenchendo todo o espaço vazio */
+  }
+}
+/* --- 11. RESPONSIVIDADE APENAS PARA CELULARES (MATANDO O VAZIO PRETO) --- */
+
+@media (max-width: 600px) {
+  /* Altera o comportamento da base preta para ela NÃO esticar com a altura dos Pads */
+  .keyboard-base {
+    overflow-x: hidden !important; 
+    display: flex !important;
+    width: 100% !important;
+    box-sizing: border-box;
+    padding: 8px 4px 4px 4px !important; 
+    
+    height: 125px !important;       /* Força o container preto a ter EXATAMENTE a altura do piano */
+    align-self: flex-end !important; /* Impede os Pads de esticarem esse bloco e joga o piano pro fundo */
+  }
+  
+  /* Garante que a lista de teclas preencha todo o espaço interno da base preta */
+  .piano-keys {
+    display: flex !important;            
+    width: 100% !important;              
+    height: 100% !important;        /* Ocupa os 125px da base sem sobrar nenhuma borda */
+  }
+  
+  /* As brancas dividem a tela por igual horizontalmente */
+  .piano-keys .white {
+    width: auto !important;
+    flex-grow: 1 !important;             
+    flex-basis: 0 !important; 
+    height: 100% !important;
+  }
+  
+  /* Ajuste Ultra-Adaptativo para as pretas (Perfeito para iPhone 8 Plus) */
+  .piano-keys .black {
+    width: 5.5% !important;             /* Em vez de px fixo, usa % para acompanhar telas ligeiramente maiores */
+    height: 65% !important;   
+    margin: 0 !important;               /* Zera as margens fixas */
+    margin-left: -2.75% !important;     /* Margem negativa dinâmica (metade exata da largura de 5.5%) */
+    margin-right: -2.75% !important;
+  }
+
+  /* Deixa as letras das notas bem posicionadas no rodapé das teclas */
+  .piano-keys span {
+    font-size: 0.6rem !important;        
+    bottom: 5px !important;
+  }
+
+  .piano-keys .black span {
+    font-size: 0.5rem !important;
+    bottom: 4px !important;
+  }
+}
